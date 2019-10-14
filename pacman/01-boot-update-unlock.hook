@@ -1,0 +1,13 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = File
+Target = boot/*
+Target = usr/lib/initcpio/*
+
+[Action]
+Description = Mounting encrypted /boot partition...
+When = PreTransaction
+Exec = /bin/sh -c 'systemctl start systemd-cryptsetup@cryptboot.service && (findmnt /boot &>/dev/null || mount /boot) && (findmnt /boot/efi &>/dev/null || mount /boot/efi)'
+AbortOnFail
