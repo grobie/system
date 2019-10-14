@@ -16,14 +16,14 @@ sudo pacman -S gnome
 sudo bash -c 'echo LC_ALL= >> /etc/locale.conf'
 ```
 
-### Install networkmanager with VPN support
+### NetworkManager with VPN support
 
 ```console
 sudo pacman -S networkmanager networkmanager-openvpn
 sudo systemctl enable --now NetworkManager.service
 ```
 
-### Install & enable power management
+### Power management
 
 ```console
 sudo pacman -S tlp tp_smapi acpi_call x86_energy_perf_policy
@@ -41,7 +41,9 @@ sudo systemctl mask systemd-rfkill.socket
 sudo systemctl enable --now gdm.service
 ```
 
-### Configure Mouse and Keyboard settings
+## System configuration
+
+### Configure input settings
 
 - Change sensitivity
 - Consider changing natural scrolling
@@ -58,9 +60,10 @@ sudo systemctl enable --now gdm.service
 1. Install gpaste `pacman -S gpaste`
 2. Start gpaste and enable the gnome-shell extension (requires user session restart)
 
-## General needs
+### Package manager
 
-### Install AUR package manager
+Next to pacman, an AUR package manager/wrapper is useful to ease the
+installation of user provided packages.
 
 ```console
 # Install git, go, and base development tools
@@ -75,7 +78,14 @@ cd ~/code/src/aur.archlinux.org/yay
 makepkg -si
 ```
 
-### Install chrony (time sync client)
+As the [installation](/installation.md) instructions suggest to extract boot
+into a separate encrypted device, package updates touching `/boot` will silently
+fail. Install a guard hook to make such errors visible.
+
+1. Install kernel modules hook (note the installation instructions) `yay -S kernel-modules-hook`
+2. d
+
+### Time sync
 
 <https://wiki.archlinux.org/index.php/Chrony>
 
@@ -84,7 +94,7 @@ makepkg -si
 3. Enable chrony `systemctl enable --now chronyd.service`
 4. Activate chrony by starting the console with `chronyc` and typing `online`
 
-### Install browser
+### Browser
 
 1. Install Firefox `yay -S firefox`
 2. Disable password saving
@@ -92,7 +102,9 @@ makepkg -si
 4. Install U2F host module `yay -S libu2f-host`
 5. Disable "Ctrl+Tab cycles through tabs in recently used order"
 
-### Install code editor
+## Programming
+
+### Code editor
 
 1. Install Visual Studio Code `yay -S visual-studio-code-bin`
 2. Install extensions
@@ -120,7 +132,7 @@ makepkg -si
    code --install-extension ziyasal.vscode-open-in-github
    ```
 
-### Install programming tools
+### Programming tools
 
 ```console
 yay -S --needed \
