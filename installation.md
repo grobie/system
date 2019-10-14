@@ -294,9 +294,9 @@ reboot
 
 5. Enable Secure Boot in BIOS Setup
 
-# Misc
+## Misc
 
-## Notes
+### Security considerations
 
 AES is generally considered secure, has hardware acceleration and is the most
 widely used encryption standard next two twofish and serpent, so it's the
@@ -319,12 +319,3 @@ mount /dev/sda1 /mnt/boot/
 # use system installation
 arch-chroot /mnt
 ```
-
-## Gotchas
-
-- GRUB does not support LUKS2 headers; see GRUB bug #55093. Make sure to specify `--type luks1` when creating the encrypted partition using cryptsetup luksFormat.
-
-## TODO
-
-- Check how /boot is mounted and consider using a pacman hook <https://bbs.archlinux.org/viewtopic.php?pid=1771996#p1771996>
-- Can't find device /dev/disk/by-uuid/0f9def8f-
