@@ -43,7 +43,7 @@ sudo systemctl enable --now gdm.service
 
 ## System configuration
 
-### Configure input settings
+### Input settings
 
 - Change sensitivity
 - Consider changing natural scrolling
@@ -54,6 +54,10 @@ sudo systemctl enable --now gdm.service
 1. Install gnome-tweaks `pacman -S gnome-tweaks`
 2. Swap CapsLock with Ctrl in Keyboard / Additional
 3. Enable compose key (AltGr) for umlauts
+
+### System notifications
+
+- Disable audible bell `gsettings set org.gnome.desktop.wm.preferences audible-bell false`
 
 ### Clipboard manager
 
@@ -155,4 +159,12 @@ yay -S --needed \
     terraform \
     tmux \
     zsh
+```
+
+## Messaging
+
+### Signal
+
+```console
+yay -S signal-desktop-bin
 ```
