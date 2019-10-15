@@ -156,6 +156,7 @@ yay -S --needed \
     kubectl-bin \
     man \
     ruby \
+    shellcheck-static \
     terraform \
     tmux \
     zsh
