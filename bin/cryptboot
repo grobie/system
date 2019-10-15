@@ -1,0 +1,37 @@
+#!/bin/bash
+
+set -e
+
+device=cryptboot
+status=$1
+case $status in
+status)
+    exec cryptsetup status "$device"
+    ;;
+mount)
+    systemctl start "systemd-cryptsetup@$device.service"
+    if ! findmnt /boot &>/dev/null; then
+        mount /boot
+    fi
+    if ! findmnt /boot/efi &>/dev/null; then
+        mount /boot/efi
+    fi
+    exit 0
+    ;;
+umount)
+    if findmnt /boot/efi &>/dev/null; then
+        umount /boot/efi
+    fi
+    if findmnt /boot &>/dev/null; then
+        umount /boot
+    fi
+    if cryptsetup status "$device" &>/dev/null; then
+        cryptsetup close "$device"
+    fi
+    exec systemctl stop "systemd-cryptsetup@$device.service"
+    ;;
+*)
+    echo "usage: $0 <action>" >&2
+    exit 1
+    ;;
+esac
