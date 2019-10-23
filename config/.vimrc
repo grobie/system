@@ -1,14 +1,9 @@
 " swap files
-set directory=$HOME/.vim/swapfiles//
+set directory=$HOME/.vim/swapfiles/
 
 " vim bundles
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-
-" solarized colors
-let g:solarized_termtrans = 1
-set background=dark
-colorscheme solarized
+" runtime bundle/vim-pathogen/autoload/pathogen.vim
+" call pathogen#infect()
 
 set number
 set relativenumber
