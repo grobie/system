@@ -6,4 +6,3 @@ A collection of documentation and scripts to configure my computer systems.
 
 - secure boot
 - backup of header file
-- fish setup
