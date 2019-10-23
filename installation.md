@@ -141,7 +141,7 @@ mount /dev/sdb1 /mnt/boot/efi
 
 6. Add cryptboot to crypttab `vim /mnt/etc/crypttab`
 
-    The disk `<identifier>` can be found with `blkid /dev/sdb2`. #6856c303-fc6c-4efe-83e1-3f18bed835cd
+    The disk `<identifier>` can be found with `blkid /dev/sdb2`.
 
    ```text
    cryptboot    UUID=<identifier>    none    noauto,luks
@@ -293,6 +293,33 @@ reboot
    ```
 
 5. Enable Secure Boot in BIOS Setup
+
+## Backup
+
+In order to recover from a cryptboot disk failure, the following steps take a
+backup of the ESP and Boot partition. Store these on cloud drive and rebuild
+another stick in case of issues.
+
+```console
+# backup ESP
+dd if=/dev/sda1 conv=sync,noerror bs=64K | gzip -c > esp-backup.img.gz
+# backup Boot
+dd if=/dev/sda2 conv=sync,noerror bs=64K | gzip -c > boot-backup.img.gz
+```
+
+Partition a new stick as described above, and restore from the images:
+
+```console
+# restore ESP
+gunzip -c esp-backup.img.gz | sudo dd of=/dev/sdb1
+# restore Boot
+gunzip -c boot-backup.img.gz | sudo dd of=/dev/sdb2
+```
+
+Finally, change the UUIDs of `/dev/sdb1` and/or `/dev/sdb2` in `/etc/fstab` and
+`/etc/crypttab` according to the output of `ls -la /dev/disk/by-uuid`.
+
+<https://wiki.archlinux.org/index.php/Dd#Create_disk_image>
 
 ## Misc
 

@@ -147,6 +147,7 @@ yay -S --needed \
     docker \
     fish \
     git \
+    google-cloud-sdk \
     go \
     htop \
     hub \
@@ -155,6 +156,7 @@ yay -S --needed \
     jq \
     kubectl-bin \
     man \
+    mosh \
     ruby \
     shellcheck-static \
     terraform \
