@@ -1,5 +1,9 @@
-sync: ~/.config/Code/User/settings.json
+SOURCES     = $(wildcard *.json)
+DESTINATION = $(HOME)/.config/Code/User
+SYNCABLES   = $(patsubst %, $(DESTINATION)/%, $(SOURCES))
 
-~/.config/Code/User/%: %
+sync: $(SYNCABLES)
+
+$(DESTINATION)/%: %
 	mkdir -p $(dir $@)
 	ln -s $(abspath $<) $@
