@@ -1,7 +1,9 @@
-SOURCES   = $(shell find . -name '.*' -type f -print)
-SYNCABLES = $(patsubst ./%, $(HOME)/%, $(SOURCES))
+SOURCES     = $(shell find . -type f ! -path ./Makefile)
+DESTINATION = $(HOME)
+SYNCABLES   = $(patsubst ./%, $(DESTINATION)/%, $(SOURCES))
 
 sync: $(SYNCABLES)
 
-$(HOME)/%: %
+$(DESTINATION)/%: %
+	mkdir -p $(dir $@)
 	ln -s $(abspath $<) $@
