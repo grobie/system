@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -e -o pipefail
+
+notification() {
+  local message=$1
+  gdbus call --session --dest 'org.gnome.Shell' --object-path '/org/gnome/Shell' --method 'org.gnome.Shell.ShowOSD' "{'icon': <'toggle-vpn'>, 'label': <'$message'>}"
+}
+
+# select first vpn connection
+if ! connection="$(nmcli connection show | grep vpn | head | awk '{print $2}')"; then
+  echo "No VPN connection found." >&2
+  exit 1
+fi
+
+if ! nmcli connection show --active | grep -q "$connection"; then
+  notification "VPN connecting ..."
+  nmcli connection up uuid "$connection"
+  notification "VPN connected"
+else
+  nmcli connection down uuid "$connection"
+  notification "VPN disconnected"
+fi
