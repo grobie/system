@@ -22,5 +22,6 @@
         "enabled": true,
         "args": []
     },
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "window.newWindowDimensions": "maximized"
 }
