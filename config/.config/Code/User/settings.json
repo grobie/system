@@ -23,5 +23,6 @@
         "args": []
     },
     "editor.tabSize": 2,
-    "window.newWindowDimensions": "maximized"
+    "window.newWindowDimensions": "maximized",
+    "window.zoomLevel": 0
 }
