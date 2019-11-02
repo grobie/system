@@ -26,11 +26,6 @@ function gogo
 end
 
 function __gogo
-  # Support only one argument
-  if test (count (commandline -cp | string split " ")) -gt 2
-    return 0
-  end
-
   set base $HOME/code/src/github.com
   set query (commandline -ct)
 
@@ -46,4 +41,5 @@ function __gogo
   end
 end
 
-complete -c gogo -d repository -x -a '(__gogo)'
+complete -c gogo -f
+complete -c gogo -d repository -a '(__gogo)' -n __fish_is_first_arg
