@@ -1,15 +1,17 @@
 #!/bin/bash
 
-set -e
+set -e -o pipefail
 
-device=cryptboot
+cryptname=cryptboot
+uuid="$(grep "$cryptname" /etc/crypttab | cut -f2 | cut -d= -f2)"
+device="$(readlink -f "/dev/disk/by-uuid/$uuid")"
 status=$1
 case $status in
 status)
-    exec cryptsetup status "$device"
+    exec cryptsetup status "$cryptname"
     ;;
 mount)
-    systemctl start "systemd-cryptsetup@$device.service"
+    cryptsetup luksOpen "$device" "$cryptname"
     if ! findmnt /boot &>/dev/null; then
         mount /boot
     fi
@@ -25,10 +27,9 @@ umount)
     if findmnt /boot &>/dev/null; then
         umount /boot
     fi
-    if cryptsetup status "$device" &>/dev/null; then
-        cryptsetup close "$device"
+    if cryptsetup status "$cryptname" &>/dev/null; then
+        cryptsetup close "$cryptname"
     fi
-    exec systemctl stop "systemd-cryptsetup@$device.service"
     ;;
 *)
     echo "usage: $0 <action>" >&2
