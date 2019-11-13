@@ -50,6 +50,9 @@ Details can be found here <https://wiki.archlinux.org/index.php/Dm-crypt/Drive_p
 ## Prepare boot drive
 
 ```console
+# delete any existing partition table
+gdisk /dev/sdb
+
 # create three partitions on USB dongle
 cgdisk /dev/sdb
 
