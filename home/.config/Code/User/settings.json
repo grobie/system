@@ -24,5 +24,6 @@
     },
     "editor.tabSize": 2,
     "window.newWindowDimensions": "maximized",
-    "window.zoomLevel": 0
+    "window.zoomLevel": 0,
+    "explorer.confirmDelete": false
 }
