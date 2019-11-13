@@ -135,39 +135,3 @@ fail. Install a guard hook to make such errors visible.
    code --install-extension zhuangtongfa.Material-theme
    code --install-extension ziyasal.vscode-open-in-github
    ```
-
-### Programming tools
-
-```console
-yay -S --needed \
-    ack \
-    aws-cli \
-    base-devel \
-    bind-tools \
-    docker \
-    fish \
-    git \
-    google-cloud-sdk \
-    go \
-    htop \
-    hub \
-    inetutils \
-    ipmitool \
-    jq \
-    kubectl-bin \
-    man \
-    mosh \
-    ruby \
-    shellcheck-static \
-    terraform \
-    tmux \
-    zsh
-```
-
-## Messaging
-
-### Signal
-
-```console
-yay -S signal-desktop-bin
-```

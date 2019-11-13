@@ -1,0 +1,37 @@
+# Standard
+chrony
+firefox
+gnome-tweaks
+gpaste
+libu2f-host
+
+# Communication
+bluejeans
+signal-desktop-bin
+slack-desktop
+zoom
+
+# Programming tools
+ack
+aws-cli
+base-devel
+bind-tools
+docker
+fish
+git
+google-cloud-sdk
+go
+htop
+hub
+inetutils
+ipmitool
+jq
+kubectl-bin
+man-db
+mosh
+ruby
+shellcheck-static
+terraform
+tmux
+visual-studio-code-bin
+zsh
