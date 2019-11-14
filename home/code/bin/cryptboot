@@ -3,15 +3,16 @@
 set -e -o pipefail
 
 cryptname=cryptboot
-uuid="$(grep "$cryptname" /etc/crypttab | cut -f2 | cut -d= -f2)"
-device="$(readlink -f "/dev/disk/by-uuid/$uuid")"
+device="$(readlink -f /dev/disk/by-partlabel/Boot)"
 status=$1
 case $status in
 status)
     exec cryptsetup status "$cryptname"
     ;;
 mount)
-    cryptsetup luksOpen "$device" "$cryptname"
+    if ! cryptsetup status "$cryptname" &>/dev/null; then
+        cryptsetup luksOpen "$device" "$cryptname"
+    fi
     if ! findmnt /boot &>/dev/null; then
         mount /boot
     fi
