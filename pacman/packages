@@ -17,6 +17,7 @@ aws-cli
 base-devel
 bind-tools
 docker
+docker-compose
 fish
 git
 google-cloud-sdk
