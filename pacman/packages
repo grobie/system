@@ -35,4 +35,5 @@ shellcheck-static
 terraform
 tmux
 visual-studio-code-bin
+whois
 zsh
