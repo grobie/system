@@ -13,3 +13,5 @@ install-packages: packages
 		<(cat <(pacman -Qg | cut -d\  -f1 | uniq) <(pacman -Qq) | sort) \
 		<(cat $< | grep -v '^#\|^$$' | sort) \
 	| yay -S -
+
+setup:

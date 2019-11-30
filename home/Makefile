@@ -16,3 +16,4 @@ bluetooth-toggle-vpn: $(DESTINATION)/code/bin/toggle-vpn
 	gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$(KEYBINDING_PATH) binding 'Bluetooth'
 	gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$(KEYBINDING_PATH) command '$<'
 	gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['$(KEYBINDING_PATH)']"
+	gsettings set org.gnome.settings-daemon.plugins.media-keys rfkill-bluetooth-static "[]"
