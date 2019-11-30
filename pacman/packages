@@ -11,6 +11,10 @@ signal-desktop-bin
 slack-desktop
 zoom
 
+# Media
+spotify
+vlc
+
 # Programming tools
 ack
 aws-cli
