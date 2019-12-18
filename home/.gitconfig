@@ -37,3 +37,5 @@
 	private = yes
 [help]
 	autocorrect = 1
+[includeIf "gitdir:~/code/src/github.com/soundcloud/"]
+	path = ~/code/src/github.com/soundcloud/.gitconfig
