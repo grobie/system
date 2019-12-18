@@ -35,6 +35,7 @@ man-db
 mosh
 ruby
 shellcheck-static
+tcpdump
 terraform
 tmux
 visual-studio-code-bin
