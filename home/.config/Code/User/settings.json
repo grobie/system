@@ -25,5 +25,7 @@
     "editor.tabSize": 2,
     "window.newWindowDimensions": "maximized",
     "window.zoomLevel": 0,
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "go.formatTool": "goimports",
+    "go.useLanguageServer": true
 }
