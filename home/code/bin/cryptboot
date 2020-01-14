@@ -2,9 +2,16 @@
 
 set -e -o pipefail
 
-cryptname=cryptboot
-device="$(readlink -f /dev/disk/by-partlabel/Boot)"
+device_label=Boot
+device_lookup=/dev/disk/by-partlabel/$device_label
+if ! test -L $device_lookup; then
+    echo "could not find disk with label $device_label" >&2
+    exit 2
+fi
+
 status=$1
+device="$(readlink -f $device_lookup)"
+cryptname=cryptboot
 case $status in
 status)
     exec cryptsetup status "$cryptname"
