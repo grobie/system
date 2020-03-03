@@ -9,6 +9,13 @@
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
     "files.autoSave": "onFocusChange",
+    "editor.tabSize": 2,
+    "window.newWindowDimensions": "maximized",
+    "window.zoomLevel": 0,
+    "explorer.confirmDelete": false,
+    "go.formatTool": "goimports",
+    "go.useLanguageServer": true,
+    "editor.formatOnSave": true,
     "terraform.indexing": {
         "enabled": false,
         "liveIndexing": false,
@@ -21,11 +28,5 @@
     "terraform.languageServer": {
         "enabled": true,
         "args": []
-    },
-    "editor.tabSize": 2,
-    "window.newWindowDimensions": "maximized",
-    "window.zoomLevel": 0,
-    "explorer.confirmDelete": false,
-    "go.formatTool": "goimports",
-    "go.useLanguageServer": true
+    }
 }
