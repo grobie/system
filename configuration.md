@@ -87,7 +87,7 @@ into a separate encrypted device, package updates touching `/boot` will silently
 fail. Install a guard hook to make such errors visible.
 
 1. Install kernel modules hook (note the installation instructions) `yay -S kernel-modules-hook`
-2. d
+2. Run `make -C pacman sync` to install custom hooks to guard against updates without /boot mounted
 
 ### Time sync
 
