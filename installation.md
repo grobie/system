@@ -132,7 +132,7 @@ mount /dev/sdb1 /mnt/boot/efi
 ### Initialization
 
 1. Change mirror package server if desired `vim /etc/pacman.d/mirrorlist`
-2. Install base images `pacstrap /mnt base linux linux-firmware lvm2 efibootmgr grub-efi-x86_64 intel-ucode mkinitcpio vim netctl dhclient dialog ifplugd`
+2. Install base images `pacstrap /mnt base linux linux-firmware lvm2 efibootmgr grub-efi-x86_64 intel-ucode mkinitcpio vim netctl dhclient dialog wpa_supplicant ifplugd`
 3. Generate fstab `genfstab -Up /mnt >> /mnt/etc/fstab`
 4. Change fstab entries of /boot and /boot/efi to use "noauto" flag `vim /mnt/etc/fstab`
 5. Add /tmp ramdisk `vim /mnt/etc/fstab`
