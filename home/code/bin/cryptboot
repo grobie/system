@@ -9,15 +9,18 @@ if ! test -L $device_lookup; then
     exit 2
 fi
 
-status=$1
+action=$1
 device="$(readlink -f $device_lookup)"
 cryptname=cryptboot
-case $status in
+case $action in
 status)
     exec cryptsetup status "$cryptname"
     ;;
 mount)
-    if ! cryptsetup status "$cryptname" &>/dev/null; then
+    if ! cryptsetup status "$cryptname" | grep -q -E 'type: +LUKS'; then
+        if cryptsetup status "$cryptname" | grep -q -E 'type: +n/a'; then
+            cryptsetup close "$cryptname"
+        fi
         cryptsetup luksOpen "$device" "$cryptname"
     fi
     if ! findmnt /boot &>/dev/null; then
