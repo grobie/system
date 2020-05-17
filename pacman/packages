@@ -3,6 +3,7 @@ chrony
 firefox
 gnome-tweaks
 gnome-shell-extension-arch-update
+gnome-software-packagekit-plugin
 gpaste
 libu2f-host
 
@@ -34,6 +35,8 @@ jq
 kubectl-bin
 man-db
 mosh
+python
+python-pip
 ruby
 shellcheck-static
 tcpdump
