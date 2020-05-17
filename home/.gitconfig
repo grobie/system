@@ -9,6 +9,7 @@
 	ci = commit
 	cia = commit -a --amend --no-edit
 	df = ! git diff --color | diff-so-fancy | less
+	lg = log --pretty='format:%C(yellow)%h%Creset %s %C(red)(%cr)%Creset %C(blue)by %an%Creset'
 	s = status
 	st = status -sb
 	gp = push origin HEAD:refs/for/master
@@ -22,8 +23,6 @@
 	untracked = red bold
 [apply]
 	whitespace = nowarn
-[format]
-	pretty = %C(yellow)%h%Creset %s %C(red)(%cr)%Creset %C(blue)by %an%Creset
 [branch]
 	autosetupmerge = true
 [push]
