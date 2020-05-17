@@ -1,6 +1,10 @@
 set -gx GOPATH ~/code
-if not echo $PATH | grep -q $GOPATH/bin
+if test -d $GOPATH/bin; and not echo $PATH | grep -q $GOPATH/bin
     set -gx PATH $GOPATH/bin $PATH
+end
+
+if test -d $HOME/.local/bin/; and not echo $PATH | grep -q $HOME/.local/bin
+    set -gx PATH $HOME/.local/bin $PATH
 end
 
 if command -sq gem
