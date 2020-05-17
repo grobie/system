@@ -13,6 +13,7 @@
     "window.newWindowDimensions": "maximized",
     "window.zoomLevel": 0,
     "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
     "go.formatTool": "goimports",
     "go.useLanguageServer": true,
     "editor.formatOnSave": true,
@@ -28,5 +29,15 @@
     "terraform.languageServer": {
         "enabled": true,
         "args": []
+    },
+    "gitlens.liveshare.allowGuestAccess": false,
+    "liveshare.autoShareServers": false,
+    "liveshare.anonymousGuestApproval": "reject",
+    "liveshare.guestApprovalRequired": true,
+    "liveshare.autoShareTerminals": false,
+    "ruby.useLanguageServer": true,
+    "[yaml]": {
+        "editor.insertSpaces": false,
+        "editor.tabSize": 2
     }
 }
