@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e -o pipefail
+
+echo >&2 "Pushing branch to origin ..."
+git push origin HEAD
+
+echo >&2 "Creating pull request ..."
+if pr=$(hub pull-request); then
+  printf %s "$pr" | gpaste-client
+  echo >&2 "Stored $pr link in clipboard"
+fi
