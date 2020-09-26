@@ -2,12 +2,6 @@
 [
   {
     "key": "ctrl+f",
-    "command": "-workbench.action.terminal.focusFindWidget",
-    "when": "terminalFocus"
-  },
-  {
-    "key": "ctrl+f",
-    "command": "-workbench.action.terminal.focusFind",
-    "when": "terminalFindFocused || terminalFocus"
+    "command": "-workbench.action.terminal.focusFind"
   }
 ]

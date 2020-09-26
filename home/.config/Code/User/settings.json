@@ -16,7 +16,6 @@
     "explorer.confirmDragAndDrop": false,
     "go.formatTool": "goimports",
     "go.useLanguageServer": true,
-    "editor.formatOnSave": true,
     "terraform.indexing": {
         "enabled": false,
         "liveIndexing": false,
@@ -27,8 +26,10 @@
         ]
     },
     "terraform.languageServer": {
-        "enabled": true,
-        "args": []
+        "external": true,
+        "args": [
+            "serve"
+        ]
     },
     "gitlens.liveshare.allowGuestAccess": false,
     "liveshare.autoShareServers": false,
@@ -39,5 +40,9 @@
     "[yaml]": {
         "editor.insertSpaces": false,
         "editor.tabSize": 2
-    }
+    },
+    "editor.formatOnSave": true,
+    "ruby.intellisense": "rubyLocate",
+    "go.lintOnSave": "file",
+    "go.useCodeSnippetsOnFunctionSuggest": true
 }
