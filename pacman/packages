@@ -6,10 +6,10 @@ gnome-shell-extension-arch-update
 gnome-software-packagekit-plugin
 gpaste
 libu2f-host
+pacman-contrib
 
 # Communication
 signal-desktop
-slack-desktop
 zoom
 
 # Media
@@ -20,7 +20,6 @@ vlc
 ack
 aws-cli
 base-devel
-bind-tools
 docker
 docker-compose
 fish
@@ -38,7 +37,7 @@ mosh
 python
 python-pip
 ruby
-shellcheck-static
+shellcheck-bin
 tcpdump
 terraform
 tmux
