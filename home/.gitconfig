@@ -36,7 +36,9 @@
 	private = yes
 [help]
 	autocorrect = 1
-[includeIf "gitdir:~/code/src/github.com/soundcloud/"]
-	path = ~/code/src/github.com/soundcloud/.gitconfig
+[includeIf "gitdir:~/code/src/github.com/prometheus/"]
+	path = ~/code/src/github.com/prometheus/.gitconfig
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[pull]
+	ff = only

@@ -8,17 +8,10 @@ notification() {
   gdbus call --session --dest 'org.gnome.Shell' --object-path '/org/gnome/Shell' --method 'org.gnome.Shell.ShowOSD' "{'icon': <'$icon'>, 'label': <'$message'>}" >/dev/null
 }
 
-# select first vpn connection
-if ! connection="$(nmcli connection show | grep vpn | head | awk '{print $2}')"; then
-  echo "No VPN connection found." >&2
-  exit 1
-fi
-
-if ! nmcli connection show --active | grep -q "$connection"; then
-  notification "network-vpn-acquiring-symbolic" "VPN connecting ..."
-  nmcli connection up uuid "$connection" >/dev/null
-  notification "network-vpn-symbolic" "VPN connected"
+if nordvpn status | grep -q Connected; then
+  notification "network-wired-disconnected-symbolic" "NordVPN disconnecting ..."
+  nordvpn disconnect
 else
-  nmcli connection down uuid "$connection" >/dev/null
-  notification "network-wired-disconnected-symbolic" "VPN disconnected"
+  notification "network-vpn-acquiring-symbolic" "NordVPN connecting ..."
+  nordvpn connect
 fi
