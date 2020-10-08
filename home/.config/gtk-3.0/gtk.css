@@ -1,0 +1,8 @@
+/* Remove any padding from bottom to align tmux status bar */
+VteTerminal,
+vte-terminal,
+TerminalScreen {
+  padding: 0px;
+  margin: 0px;
+  -VteTerminal-inner-border: 0px;
+}
