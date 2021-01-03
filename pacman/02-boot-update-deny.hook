@@ -1,12 +1,14 @@
 [Trigger]
+Type = Path
 Operation = Install
 Operation = Upgrade
 Operation = Remove
-Type = File
 Target = boot/*
 Target = usr/lib/initcpio/*
+Target = usr/lib/modules/*/vmlinuz
 
 [Action]
+Description = Verify boot volume is mounted...
 When = PreTransaction
 Exec = /bin/sh -c 'findmnt /boot &>/dev/null || ( printf "error: /boot not mounted\n"; exit 1 )'
 AbortOnFail
