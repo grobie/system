@@ -13,6 +13,7 @@
 	s = status
 	st = status -sb
 	gp = push origin HEAD:refs/for/master
+	tag-release = "!f() { tag=v${1:-$(cat VERSION)} ; git tag -s ${tag} -m ${tag} && git push origin ${tag}; }; f"
 [color]
 	ui = 1
 	diff = auto
