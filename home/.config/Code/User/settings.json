@@ -44,5 +44,13 @@
     "editor.formatOnSave": true,
     "ruby.intellisense": "rubyLocate",
     "go.lintOnSave": "file",
-    "go.useCodeSnippetsOnFunctionSuggest": true
+    "go.useCodeSnippetsOnFunctionSuggest": true,
+    "[html]": {
+        "editor.formatOnSave": false,
+        "editor.suggest.insertMode": "replace"
+    },
+    "cSpell.enabled": true,
+    "cSpell.enableFiletypes": [
+        "ruby"
+    ]
 }
