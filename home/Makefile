@@ -1,4 +1,4 @@
-SOURCES     = $(shell find . -type f ! -path ./Makefile)
+SOURCES     = $(shell find . ! -type d ! -path ./Makefile)
 DESTINATION = $(HOME)
 SYNCABLES   = $(patsubst ./%, $(DESTINATION)/%, $(SOURCES))
 
