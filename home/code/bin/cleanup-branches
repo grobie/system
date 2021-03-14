@@ -1,7 +1,11 @@
 #!/bin/bash
 
 REMOTE="${REMOTE:-origin}"
-filter='^(\* .*|master|stable|release-.*)$'
+filter='^(\* .*|main|master|stable|release-.*)$'
+base=main
+if [ -f "$(git rev-parse --show-toplevel)/.git/refs/heads/master" ]; then
+  base=master
+fi
 
 cleanup() {
   local branch="$1"
@@ -25,7 +29,7 @@ git branch --list --no-merged | while read -r branch; do
     continue
   fi
 
-  if git cherry origin/master "$branch" | grep -v -q '^+'; then
+  if git cherry "origin/$base" "$branch" | grep -v -q '^+'; then
     cleanup "$branch"
   fi
 done

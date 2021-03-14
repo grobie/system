@@ -5,8 +5,13 @@ set -e -o pipefail
 echo >&2 "Pushing branch to origin ..."
 git push origin HEAD
 
+base=main
+if [ -f "$(git rev-parse --show-toplevel)/.git/refs/heads/master" ]; then
+  base=master
+fi
+
 echo >&2 "Creating pull request ..."
-if pr=$(hub pull-request); then
+if pr=$(hub pull-request --base "$base"); then
   printf %s "$pr" | gpaste-client
   echo >&2 "Stored $pr link in clipboard"
 fi

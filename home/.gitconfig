@@ -39,7 +39,11 @@
 	autocorrect = 1
 [includeIf "gitdir:~/code/src/github.com/prometheus/"]
 	path = ~/code/src/github.com/prometheus/.gitconfig
+[includeIf "gitdir:~/code/src/github.com/gigs-tel/"]
+	path = ~/code/src/github.com/gigs-tel/.gitconfig
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [pull]
 	ff = only
+[init]
+	defaultBranch = main
