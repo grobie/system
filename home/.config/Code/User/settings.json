@@ -53,18 +53,33 @@
         "ruby"
     ],
     "cSpell.userWords": [
+        "Qrcodes",
         "ULID",
         "arity",
         "backtrace",
+        "deserialization",
         "gcloud",
+        "gsutil",
+        "idempotency",
+        "instrumenter",
+        "instrumentor",
+        "jwks",
+        "klass",
+        "kwargs",
+        "lastest",
         "omittable",
         "preload",
         "prepend",
+        "rsync",
+        "strftime",
         "tempfile",
+        "tmpl",
         "twilio"
     ],
     "ruby.lint": {
         "standard": true
     },
-    "ruby.format": "standard"
+    "ruby.format": "standard",
+    "go.toolsManagement.autoUpdate": true,
+    "workbench.startupEditor": "welcomePage"
 }
