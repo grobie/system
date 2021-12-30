@@ -53,33 +53,60 @@
         "ruby"
     ],
     "cSpell.userWords": [
-        "Qrcodes",
-        "ULID",
+        "ABCDEFGHJKMNPQRSTVWXYZ",
         "arity",
         "backtrace",
+        "bitshift",
+        "concat",
+        "Crockford",
+        "deallocate",
+        "Deallocating",
         "deserialization",
+        "favicon",
         "gcloud",
         "gsutil",
         "idempotency",
         "instrumenter",
         "instrumentor",
         "jwks",
+        "JWTs",
         "klass",
         "kwargs",
         "lastest",
+        "middlewares",
         "omittable",
+        "openapi",
+        "postgres",
+        "postgresql",
         "preload",
         "prepend",
+        "Qrcodes",
+        "railtie",
+        "rbac",
+        "Roadmap",
         "rsync",
+        "serializable",
         "strftime",
         "tempfile",
         "tmpl",
-        "twilio"
+        "tobi",
+        "twilio",
+        "ULID",
+        "Unprocessable",
+        "upcase"
     ],
     "ruby.lint": {
         "standard": true
     },
     "ruby.format": "standard",
     "go.toolsManagement.autoUpdate": true,
-    "workbench.startupEditor": "welcomePage"
+    "workbench.startupEditor": "welcomePage",
+    "workbench.editorAssociations": {
+        "git-rebase-todo": "default"
+    },
+    "redhat.telemetry.enabled": false,
+    "editor.suggest.preview": true,
+    "files.associations": {
+        "COMMIT_EDITMSG": "git-commit"
+    }
 }
