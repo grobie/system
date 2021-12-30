@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e -o pipefail
+
+name="WH-1000XM4"
+id=$(bluetoothctl devices | grep "$name" | cut -d\  -f2)
+
+notification() {
+  local icon=$1
+  local message=$2
+  gdbus call --session --dest 'org.gnome.Shell' --object-path '/org/gnome/Shell' --method 'org.gnome.Shell.ShowOSD' "{'icon': <'$icon'>, 'label': <'$message'>}" >/dev/null
+}
+
+if bluetoothctl info "$id" | grep -q "Connected: yes"; then
+  notification "bluetooth-disabled-symbolic" "Headphones disconnecting ..."
+  bluetoothctl disconnect "$id"
+else
+  notification "bluetooth-active-symbolic" "Headphones connecting ..."
+  bluetoothctl connect "$id"
+fi
