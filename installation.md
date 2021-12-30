@@ -39,7 +39,7 @@ Details can be found here <https://wiki.archlinux.org/index.php/Dm-crypt/Drive_p
 ## Prepare SSH terminal on new computer
 
 1. Boot into Arch installation medium
-2. Connect to wifi `wifi-menu`
+2. Connect to wifi `iwctl` (`station wlan0 connect <name>`)
 3. Verify internet access `ping -c1 archlinux.org`
 4. Update the system clock `timedatectl set-ntp true`
 5. Update password `passwd`
@@ -90,15 +90,12 @@ passphrases during boot. As the cryptboot device is normally closed and only
 open during boot, this should be secure.
 
 ```console
-# create and open encrypted container with detached LUKS header
-truncate -s 16M /mnt/luksheader
-cryptsetup luksFormat /dev/nvme0n1 --type luks1 --header /mnt/luksheader
-cryptsetup open --type luks1 --header /mnt/luksheader /dev/nvme0n1 cryptroot
-
-# create binary keyfile and store it on cryptboot as well
-dd bs=512 count=4 if=/dev/random of=/mnt/lukskey iflag=fullblock
-chmod 600 /mnt/lukskey
-cryptsetup --header /mnt/luksheader luksAddKey /dev/nvme0n1 /mnt/lukskey
+# create and open encrypted container with detached LUKS header and key-file.
+truncate -s 16M /mnt/pad91.header
+dd bs=512 count=4 if=/dev/random of=/mnt/pad91.key iflag=fullblock
+chmod 600 /mnt/pad91.key
+cryptsetup luksFormat /dev/nvme0n1 --type luks1 --header /mnt/pad91.header --key-file /mnt/pad91.key
+cryptsetup open --type luks1 --header /mnt/pad91.header --key-file /mnt/pad91.key /dev/nvme0n1 cryptroot
 
 # verify container was opened and mapped (/dev/mapper/cryptboot, /dev/mapper/cryptroot)
 fdisk -l
@@ -144,10 +141,8 @@ mount /dev/sdb1 /mnt/boot/efi
 
 6. Add cryptboot to crypttab `vim /mnt/etc/crypttab`
 
-    The disk `<identifier>` can be found with `blkid /dev/sdb2`.
-
    ```text
-   cryptboot    UUID=<identifier>    none    noauto,luks
+   cryptboot    PARTLABEL=Boot    none    noauto,luks
    ```
 
 7. Change root `arch-chroot /mnt`
@@ -199,7 +194,7 @@ mount /dev/sdb1 /mnt/boot/efi
    ...
    MODULES=(i915 loop)
    ...
-   FILES=(/boot/luksheader /boot/lukskey)
+   FILES=(/boot/pad91.header /boot/pad91.key)
    ...
    HOOKS=(base udev autodetect keyboard keymap modconf block customencrypt lvm2 filesystems fsck)
    ```

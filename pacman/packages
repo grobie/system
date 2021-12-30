@@ -5,8 +5,8 @@ gnome-tweaks
 gnome-shell-extension-arch-update
 gnome-software-packagekit-plugin
 gpaste
-libu2f-host
 pacman-contrib
+seahorse
 
 # Communication
 signal-desktop

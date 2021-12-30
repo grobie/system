@@ -102,9 +102,7 @@ fail. Install a guard hook to make such errors visible.
 
 1. Install Firefox `yay -S firefox`
 2. Disable password saving
-3. Install extensions LastPass, Dashlane, uBlock Origin
-4. Install U2F host module `yay -S libu2f-host`
-5. Disable "Ctrl+Tab cycles through tabs in recently used order"
+3. Install extensions like password manager, uBlock Origin (or sync Firefox account)
 
 ## Programming
 
