@@ -43,6 +43,13 @@ sudo systemctl enable --now gdm.service
 
 ## System configuration
 
+### CPU + Graphics
+
+- Check and potentially change `/sys/firmware/acpi/platform_profile`
+  - [Lenovo Carbon X1 Gen 9 issues](https://forums.lenovo.com/t5/Other-Linux-Discussions/X1-Carbon-Gen-9-severe-throttling/m-p/5092264?page=3)
+- Check and potentially set kernel parameter `i915.enable_psr=0`
+  - [Lenovo Carbon X1 Gen 9 issues](https://wiki.archlinux.org/title/intel_graphics#Screen_flickering)
+
 ### Input settings
 
 - Change sensitivity
