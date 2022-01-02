@@ -1,5 +1,24 @@
 # Installation
 
+The following guide explains how to install Linux on a new computer with a 100%
+fully encrypted disk and 2-factor authentication requirement to boot the computer.
+
+With a regular LUKS setup an unencrypted header will be stored in front of the
+encrypted data to provide some necessary metadata, which leaks at least the
+information that LUKS is used. The setup layed out in this guide will create a
+100% encrypted disk which is theoretically indistinguishable from an empty disk
+overwritten with random data, as the header is stored on a separate device.
+
+As a side effect, the system can't be booted anymore without also having access
+to the separate device (USB stick), which results in a 2-factor authentication
+(USB stick + password).
+
+Requirements:
+
+- One permanent USB stick / SD card to hold encryption header + /boot
+- One temporary USB stick to install Linux
+- Another working computer with SSH installed
+
 Sources:
 
 - <https://wiki.archlinux.org/index.php/installation_guide>
@@ -7,7 +26,7 @@ Sources:
 - <https://wiki.archlinux.org/index.php/Dm-crypt/Drive_preparation>
 - <https://wiki.archlinux.org/index.php/Dm-crypt/Specialties#Encrypted_system_using_a_detached_LUKS_header>
 
-## Create installation USB stick
+## Create installation drive
 
 > **Important** Double check device name to not overwrite wrong disk!
 
@@ -22,18 +41,19 @@ Ensure sensible settings in all BIOS settings, especially around security option
 
 > **TODO** Describe all desired settings in detail.
 
-## Prepare data and boot disks
+## Clear boot drive
 
 The data and swap partitions are going to be installed on the main drive of the
 Laptop. The UEFI partition, LUKS header, and /boot partition are put on a
 separate USB stick or SD card.
 
 Details can be found here <https://wiki.archlinux.org/index.php/Dm-crypt/Drive_preparation>.
+The following steps will overwrite the whole drive with random data.
 
 1. Select target `sudo fdisk -l`
 2. Ensure device is not mounted `umount /dev/sdb1`
 3. Create temporary encryption container `sudo cryptsetup open --type plain -d /dev/urandom /dev/sdb to_be_wiped`
-4. Whipe the container with zeros `dd if=/dev/zero of=/dev/mapper/to_be_wiped status=progress`
+4. Wipe the container with zeros `dd if=/dev/zero of=/dev/mapper/to_be_wiped status=progress`
 5. Close the container `sudo cryptsetup close to_be_wiped`
 
 ## Prepare SSH terminal on new computer
@@ -45,7 +65,7 @@ Details can be found here <https://wiki.archlinux.org/index.php/Dm-crypt/Drive_p
 5. Update password `passwd`
 6. Start SSH daemon `systemctl start sshd.service`
 7. Look up hostname `hostname`
-8. Connect from working station to new laptop `ssh root@archiso`
+8. Connect from working computer to new laptop `ssh root@archiso`
 
 ## Prepare boot drive
 
