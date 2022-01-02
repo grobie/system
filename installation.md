@@ -286,6 +286,11 @@ reboot
 
 ## Secure Boot
 
+> :warning: **Warning: Here be dragons!** The following steps are not well
+> tested and might be incorrect. Make sure to read up on Secure Boot first and
+> fully understand what you are doing. An incorrect Secure Boot setup can brick
+> your machine!
+
 1. Enter a strong Administrator Password in BIOS Setup
 2. Perform 'Reset to Setup Mode' in BIOS Setup
 3. Install cryptboot
