@@ -1,1 +1,0 @@
-alias irb="irb --multiline"
