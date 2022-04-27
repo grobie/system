@@ -1,57 +1,16 @@
 {
-    "gitlens.hovers.currentLine.over": "line",
-    "gitlens.views.repositories.location": "gitlens",
-    "gitlens.views.fileHistory.location": "gitlens",
-    "gitlens.views.lineHistory.location": "gitlens",
-    "gitlens.views.compare.location": "gitlens",
-    "gitlens.views.search.location": "gitlens",
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "files.trimTrailingWhitespace": true,
-    "files.autoSave": "onFocusChange",
-    "editor.tabSize": 2,
-    "window.newWindowDimensions": "maximized",
-    "explorer.confirmDelete": false,
-    "explorer.confirmDragAndDrop": false,
-    "go.formatTool": "goimports",
-    "go.useLanguageServer": true,
-    "terraform.indexing": {
-        "enabled": false,
-        "liveIndexing": false,
-        "delay": 500,
-        "exclude": [
-            ".terraform/**/*",
-            "**/.terraform/**/*"
-        ]
-    },
-    "terraform.languageServer": {
-        "external": true,
-        "args": [
-            "serve"
-        ]
-    },
-    "gitlens.liveshare.allowGuestAccess": false,
-    "liveshare.autoShareServers": false,
-    "liveshare.anonymousGuestApproval": "reject",
-    "liveshare.guestApprovalRequired": true,
-    "liveshare.autoShareTerminals": false,
-    "ruby.useLanguageServer": true,
-    "[yaml]": {
-        "editor.insertSpaces": true,
-        "editor.tabSize": 2
-    },
-    "editor.formatOnSave": true,
-    "ruby.intellisense": "rubyLocate",
-    "go.lintOnSave": "file",
-    "go.useCodeSnippetsOnFunctionSuggest": true,
     "[html]": {
         "editor.formatOnSave": false,
         "editor.suggest.insertMode": "replace"
     },
-    "cSpell.enabled": true,
+    "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
+    },
     "cSpell.enableFiletypes": [
         "ruby"
     ],
+    "cSpell.enabled": true,
     "cSpell.userWords": [
         "ABCDEFGHJKMNPQRSTVWXYZ",
         "arity",
@@ -78,6 +37,7 @@
         "openapi",
         "postgres",
         "postgresql",
+        "Preactivated",
         "preload",
         "prepend",
         "Qrcodes",
@@ -95,18 +55,50 @@
         "Unprocessable",
         "upcase"
     ],
+    "editor.formatOnSave": true,
+    "editor.suggest.preview": true,
+    "editor.tabSize": 2,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "files.associations": {
+        "COMMIT_EDITMSG": "git-commit"
+    },
+    "files.autoSave": "onFocusChange",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.liveshare.allowGuestAccess": false,
+    "go.formatTool": "goimports",
+    "go.lintOnSave": "file",
+    "go.toolsManagement.autoUpdate": true,
+    "go.useCodeSnippetsOnFunctionSuggest": true,
+    "go.useLanguageServer": true,
+    "liveshare.anonymousGuestApproval": "reject",
+    "liveshare.autoShareServers": false,
+    "liveshare.autoShareTerminals": false,
+    "liveshare.guestApprovalRequired": true,
+    "redhat.telemetry.enabled": false,
+    "ruby.format": "standard",
     "ruby.lint": {
         "standard": true
     },
-    "ruby.format": "standard",
-    "go.toolsManagement.autoUpdate": true,
-    "workbench.startupEditor": "welcomePage",
+    "security.workspace.trust.untrustedFiles": "open",
+    "terraform.languageServer": {
+        "args": [
+            "serve"
+        ],
+        "external": true
+    },
+    "window.newWindowDimensions": "maximized",
     "workbench.editorAssociations": {
         "git-rebase-todo": "default"
     },
-    "redhat.telemetry.enabled": false,
-    "editor.suggest.preview": true,
-    "files.associations": {
-        "COMMIT_EDITMSG": "git-commit"
-    }
+    "workbench.startupEditor": "welcomePage",
+    "githubPullRequests.terminalLinksHandler": "github",
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "diffEditor.renderSideBySide": false,
+    "workbench.colorTheme": "GitHub Dark",
+    "solargraph.logLevel": "debug",
+    "solargraph.diagnostics": true
 }
